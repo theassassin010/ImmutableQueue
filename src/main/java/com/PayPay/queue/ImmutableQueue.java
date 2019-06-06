@@ -27,14 +27,13 @@ public class ImmutableQueue<T> implements Queue<T>{
 			this.queue.add(t);
 			return new ImmutableQueue<T>(this.queue);
 		}
-		throw new NullPointerException();
+		throw new NullPointerException("Argument cannot be null");
 	}
 
 	@Override
 	public ImmutableQueue<T> deQueue() {
 		if (this.queue.isEmpty()) {
-			System.out.println("Queue is Empty");
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("Queue is Empty");
 		}
 		else {
 			return new ImmutableQueue<T>(this.queue.subList(1, this.queue.size()));
@@ -44,8 +43,7 @@ public class ImmutableQueue<T> implements Queue<T>{
 	@Override
 	public T head() {
 		if (this.queue.isEmpty()) {
-			System.out.println("Queue is Empty");
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException("Queue is Empty");
 		}
 		else {
 			return this.queue.get(0);
